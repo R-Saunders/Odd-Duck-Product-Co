@@ -1,6 +1,6 @@
 'use strict'
 
-class products {
+class product {
   constructor(name, img, views, clicks) {
     this.name = name;
     this.img = img;
@@ -9,3 +9,8 @@ class products {
   }
   
 }
+
+let productsList = [];
+
+const getRandomProduct = Math.floor(Math.random() * productsList.length);
+let newProduct = new product(getRandomProduct.name, 'img.jpg', 0, 0);
