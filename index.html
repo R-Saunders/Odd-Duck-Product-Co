@@ -18,7 +18,7 @@
 						type="text"
 						placeholder="Enter Product Name"
 					/>
-					<label for="productPriceInput">Price £</label>
+					<label for="productPriceInput">Price (£)</label>
 					<input
 						type="number"
 						id="productPriceInput"
@@ -76,16 +76,13 @@
 						id="productStockInput"
 						placeholder="100"
 					/>
-					<label for="productDiscountInput">Discount</label>
-					<span>
-						<input
-							type="number"
-							name="productDiscountInput"
-							id="productDiscountInput"
-							placeholder="0"
-						/>
-						%
-					</span>
+					<label for="productDiscountInput">Discount (%)</label>
+					<input
+						type="number"
+						name="productDiscountInput"
+						id="productDiscountInput"
+						placeholder="0"
+					/>
 					<label for="productDeliveryInput">Delivery available?</label>
 					<input
 						type="checkbox"
@@ -106,10 +103,28 @@
 						id="productWarrantyInput"
 						placeholder="2"
 					/>
-					<input type="submit" value="Submit" id="formSubmitBtn" />
-					<input type="button" value="Reset" id="formResetBtn" />
+					<div class="btnContainer">
+						<input type="submit" value="Submit" id="formSubmitBtn" />
+						<input type="button" value="Reset" id="formResetBtn" />
+					</div>
 				</fieldset>
 			</form>
+			<section class="productCard">
+				<h3>Product Name: <span id="productNameOutput"></span></h3>
+				<h5>Price: £<span id="productPriceOutput"></span></h5>
+				<h4>Brand: <span id="productBrandOutput"></span></h4>
+				<h5>
+					Description
+					<p id="productDescriptionOutput"></p>
+				</h5>
+				<img src="" id="productImageOutput" />
+				<h5>Category<span id="productCategoryOutput"></span></h5>
+				<h5>Age Rating: <span id="productAgeOutput"></span></h5>
+				<h5>Delivery Available?<span id="productDeliveryOutput"></span></h5>
+				<a href="" id="productSellerWebsiteOutput">Sellers Website</a>
+				<h5>Warranty:</h5>
+				<span id="productWarrantyOutput"></span>
+			</section>
 		</main>
 		<footer></footer>
 		<script src="script.js"></script>
