@@ -3,10 +3,114 @@
 	<head>
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<title>Odd Duck Product Co.</title>
+		<link rel="stylesheet" href="style.css" />
 	</head>
 	<body>
-		<header></header>
-		<main><div></div></main>
+		<header><h1>Odd Duck Product Co.</h1></header>
+		<main>
+			<form onsubmit="formSubmitted(event)">
+				<fieldset>
+					<legend>Add a product</legend>
+					<label for="productNameInput">Product Name</label>
+					<input
+						name="productNameInput"
+						id="productNameInput"
+						type="text"
+						placeholder="Enter Product Name"
+					/>
+					<label for="productPriceInput">Price £</label>
+					<input
+						type="number"
+						id="productPriceInput"
+						name="productPriceInput"
+						placeholder="0.00"
+					/>
+					<label for="productBrandInput">Brand</label>
+					<input
+						type="text"
+						id="productBrandInput"
+						name="productBrandInput"
+						placeholder="Enter Brand Name"
+					/>
+					<label for="productDescriptionInput">Product Description</label>
+					<textarea
+						name="productDescriptionInput"
+						id="productDescriptionInput"
+						cols="30"
+						rows="10"
+						placeholder="Enter Product Description"
+					></textarea>
+					<label for="productImageInput">Product Image</label>
+					<input
+						type="url"
+						name="productImageInput"
+						id="productImageInput"
+						placeholder="www.example.com/image.jpg"
+					/>
+					<label for="productCategoryInput">Product Category</label>
+					<input
+						list="productCategoryInput"
+						name="productCategoryInput"
+						id="categoryInput"
+						placeholder="Select or Create"
+					/>
+					<datalist id="productCategoryInput">
+						<option value="Home"></option>
+						<option value="Garden"></option>
+						<option value="Furniture"></option>
+						<option value="Toys"></option>
+						<option value="Kitchen"></option>
+						<option value="Bathroom"></option>
+					</datalist>
+					<label for="productAgeInput">Age Restrictions/Rating</label>
+					<input
+						type="number"
+						name="productAgeInput"
+						id="productAgeInput"
+						placeholder="0"
+					/>
+					<label for="productStockInput">Starting Stock Count</label>
+					<input
+						type="number"
+						name="productStockInput"
+						id="productStockInput"
+						placeholder="100"
+					/>
+					<label for="productDiscountInput">Discount</label>
+					<span>
+						<input
+							type="number"
+							name="productDiscountInput"
+							id="productDiscountInput"
+							placeholder="0"
+						/>
+						%
+					</span>
+					<label for="productDeliveryInput">Delivery available?</label>
+					<input
+						type="checkbox"
+						name="productDeliveryInput"
+						id="productDeliveryInput"
+					/>
+					<label for="productSellersWebsiteInput">Seller's Website</label>
+					<input
+						type="url"
+						id="productSellersWebsiteInput"
+						name="productSellersWebsiteInput"
+						placeholder="www.example.com"
+					/>
+					<label for="productWarrantyInput">Warranty (years)</label>
+					<input
+						type="number"
+						name="productWarrantyInput"
+						id="productWarrantyInput"
+						placeholder="2"
+					/>
+					<input type="submit" value="Submit" id="formSubmitBtn" />
+					<input type="button" value="Reset" id="formResetBtn" />
+				</fieldset>
+			</form>
+		</main>
 		<footer></footer>
 		<script src="script.js"></script>
 	</body>
