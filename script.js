@@ -71,23 +71,59 @@ function formSubmitted(event) {
     productNameInput);
   productsList.push(newProduct);
   document.getElementById('productSubmitForm').reset();
-  confirm("Thank you for submitting a new product. The form has been reset if you would like to enter another product.")
+  // confirm("Thank you for submitting a new product. The form has been reset if you would like to enter another product.")
 }
 
+let randomProducts = [];
+const outputTarget = document.getElementById("products");
 
-const render = function outputProducts(){
+let renderContent = function outputProducts(){
+  outputTarget.innerHTML = '';
+  for (let i = 0; i < 3; i++) {
+    let j = randomProducts[i];
+    let chosenProduct = productsList[j];
+    
+    let productCard = document.createElement("div");
+    let productNameOutput = document.createElement("h3");
+    productNameOutput.innerHTML = `${chosenProduct.name}`;
+    productCard.appendChild(productNameOutput);
+    let productPriceOutput = document.createElement("h5");
+    productPriceOutput.innerHTML = `£${chosenProduct.price}`;
+    productCard.appendChild(productPriceOutput);
+    let productBrandOutput = document.createElement("h4");
+    productBrandOutput.innerHTML = `${chosenProduct.brand}`;
+    productCard.appendChild(productBrandOutput);
+    let productDescriptionOutput = document.createElement("p");
+    productDescriptionOutput.innerHTML = `${chosenProduct.description}`;
+    productCard.appendChild(productDescriptionOutput);
+    let productImageOutput = document.createElement("img");
+    productImageOutput.src = `${chosenProduct.img}`;
+    productCard.appendChild(productImageOutput);
+    let productCategoryOutput = document.createElement("h5");
+    productCategoryOutput.innerHTML = `${chosenProduct.category}`;
+    productCard.appendChild(productCategoryOutput);
+    let productAgeOutput = document.createElement("h5");
+    productAgeOutput.innerHTML = `${chosenProduct.age}`;
+    productCard.appendChild(productAgeOutput);
+    let productStockOutput = document.createElement("h5");
+    productStockOutput.innerHTML = `${chosenProduct.stock}`;
+    let productDeliveryOutput = document.createElement("h5");
+    productDeliveryOutput.innerHTML = `${chosenProduct.delivery}`;
+    productCard.appendChild(productDeliveryOutput);
+    let productSellerWebsiteOutput = document.createElement("a");
+    productSellerWebsiteOutput.href = `${chosenProduct.seller}`;
+    productSellerWebsiteOutput.innerHTML - `Seller's Website`
+    productCard.appendChild(productSellerWebsiteOutput);
+    let productWarrantyOutput = document.createElement("h5");
+    productWarrantyOutput.innerHTML = `${chosenProduct.warranty}`;
+    productCard.appendChild(productWarrantyOutput);
+    outputTarget.appendChild(productCard);
+  }
+}
 
-let outputTarget = document.getElementById("products");
-let productCard = document.createElement("div");
-let productNameOutput = document.createElement("h3");
-let productPriceOutput = document.createElement("h5");
-let productBrandOutput = document.createElement("h4");
-let productDescriptionOutput = document.createElement("p");
-let productImageOutput = document.createElement("img");
-let productCategoryOutput = document.createElement("h5");
-let productAgeOutput = document.createElement("h5");
-let productDeliveryOutput = document.createElement("h5");
-let productSellerWebsiteOutput = document.createElement("a");
-let productWarrantyOutput = document.createElement("h5");
-
+function onClick() {
+  for (let i = 0; i < 3; i++){
+    randomProducts.push(getRandomProduct());
+  }
+  renderContent();
 }
