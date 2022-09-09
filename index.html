@@ -8,7 +8,7 @@
 	<body>
 		<header><h1>Odd Duck Product Co.</h1></header>
 		<main>
-			<form onsubmit="formSubmitted(event)">
+			<form id="productSubmitForm" onsubmit="formSubmitted(event)">
 				<fieldset>
 					<legend>Add a product</legend>
 					<label for="productNameInput">Product Name</label>
@@ -109,21 +109,8 @@
 					</div>
 				</fieldset>
 			</form>
-			<section class="productCard">
-				<h3>Product Name: <span id="productNameOutput"></span></h3>
-				<h5>Price: £<span id="productPriceOutput"></span></h5>
-				<h4>Brand: <span id="productBrandOutput"></span></h4>
-				<h5>
-					Description
-					<p id="productDescriptionOutput"></p>
-				</h5>
-				<img src="" id="productImageOutput" />
-				<h5>Category<span id="productCategoryOutput"></span></h5>
-				<h5>Age Rating: <span id="productAgeOutput"></span></h5>
-				<h5>Delivery Available?<span id="productDeliveryOutput"></span></h5>
-				<a href="" id="productSellerWebsiteOutput">Sellers Website</a>
-				<h5>Warranty:</h5>
-				<span id="productWarrantyOutput"></span>
+			<section id="products">
+				
 			</section>
 		</main>
 		<footer></footer>
