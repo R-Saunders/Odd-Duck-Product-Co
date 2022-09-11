@@ -53,6 +53,12 @@ function formSubmitted(event) {
   productStockInput = event.target.productStockInput.value;
   productDiscountInput = event.target.productDiscountInput.value;
   productDeliveryInput = event.target.productDeliveryInput.value;
+  let delivery = function() {
+    if (productDeliveryInput == 'on') {
+      productDeliveryInput = 'Yes';
+    }
+  };
+  delivery();
   productSellersWebsiteInput = event.target.productSellersWebsiteInput.value;
   productWarrantyInput = event.target.productWarrantyInput.value;
   newProduct = new product(
@@ -103,21 +109,28 @@ let renderContent = function outputProducts(){
     productCategoryOutput.innerHTML = `${chosenProduct.category}`;
     productCard.appendChild(productCategoryOutput);
     let productAgeOutput = document.createElement("h5");
-    productAgeOutput.innerHTML = `${chosenProduct.age}`;
+    productAgeOutput.innerHTML = `Minimum Age: ${chosenProduct.age}`;
     productCard.appendChild(productAgeOutput);
     let productStockOutput = document.createElement("h5");
-    productStockOutput.innerHTML = `${chosenProduct.stock}`;
+    productStockOutput.innerHTML = `Stock: ${chosenProduct.stock}`;
+    let productDiscountOutput = document.createElement("h5");
+    productDiscountOutput.innerHTML = `Disount: ${chosenProduct.discount}%`;
+    productCard.appendChild(productDiscountOutput);
     let productDeliveryOutput = document.createElement("h5");
-    productDeliveryOutput.innerHTML = `${chosenProduct.delivery}`;
+    productDeliveryOutput.innerHTML = `Delivery Available: ${chosenProduct.delivery}`;
     productCard.appendChild(productDeliveryOutput);
     let productSellerWebsiteOutput = document.createElement("a");
     productSellerWebsiteOutput.href = `${chosenProduct.seller}`;
     productSellerWebsiteOutput.innerHTML - `Seller's Website`
     productCard.appendChild(productSellerWebsiteOutput);
     let productWarrantyOutput = document.createElement("h5");
-    productWarrantyOutput.innerHTML = `${chosenProduct.warranty}`;
+    productWarrantyOutput.innerHTML = `Warranty: ${chosenProduct.warranty} years`;
     productCard.appendChild(productWarrantyOutput);
+    let addToBasket = document.createElement("button");
+    addToBasket.innerHTML = 'Add to basket';
+    productCard.append(addToBasket);
     outputTarget.appendChild(productCard);
+    chosenProduct.views++
   }
 }
 

@@ -106,7 +106,7 @@ label, legend {
   padding: 0.5rem 1rem;
 }
 
-#formSubmitBtn:hover {
+#formSubmitBtn:hover, #products button:hover {
   background-color: #27ae60;
   color: darkslategray;
 }
@@ -123,11 +123,7 @@ label, legend {
   color: darkslategray;
 }
 
-#formSubmitBtn:active {
-  transform: translateY(2px);
-}
-
-#formResetBtn:active {
+#formSubmitBtn:active, #formResetBtn:active, #products button:active {
   transform: translateY(2px);
 }
 
@@ -172,4 +168,12 @@ section {
 #products img {
   max-width: 100%;
   object-fit: cover;
+}
+
+#products button {
+  padding: 0.25rem 0.5rem;
+  margin: 0.5rem 0;
+  cursor: pointer;
+  background-color: #2ecc71;
+  border: solid 1px #27ae60;
 }
