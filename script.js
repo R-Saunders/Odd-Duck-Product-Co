@@ -150,9 +150,6 @@ function onClick() {
   renderContent();
 }
 
-
-
-
 let labels = [];
 
 function updateLabels() {
@@ -182,7 +179,7 @@ function renderAnalytics(){
   };
 
   let data = {
-    label: labels,
+    labels: labels,
     datasets: [{
       label: 'Product Analytics',
       backgroundColor: randomColor(),
