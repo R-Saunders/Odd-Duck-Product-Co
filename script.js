@@ -164,21 +164,23 @@ function updateLabels() {
 
 let myChart;
 function renderAnalytics(){
+  
   updateValues();
+
   updateLabels();
-  if(myChart){
-    myChart.destroy();
-  }
+
   function randomColor() {
     let red = Math.floor(Math.random()*255);
     let green = Math.floor(Math.random()*255);
     let blue = Math.floor(Math.random()*255);
     return `rgb(${red},${green},${blue})`;
   }
+
   let colors = [];
   for (let i = 0; i < labels.length; i++) {
     colors.push(randomColor());
   };
+
   let data = {
     label: labels,
     datasets: [{
@@ -188,11 +190,16 @@ function renderAnalytics(){
       data: values,
     }]
   }
+
   const config = {
     type: 'bar',
     data: data,
     options: {}
   };
   
-  myChart = new Chart(document.getElementById('myChart'),config);
+  if (myChart) {
+    myChart.update()
+  } else {
+    myChart = new Chart(document.getElementById('myChart'),config);
+  }
 }
