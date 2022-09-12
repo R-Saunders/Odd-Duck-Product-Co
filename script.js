@@ -83,6 +83,15 @@ function formSubmitted(event) {
 let randomProducts = [];
 const outputTarget = document.getElementById("products");
 
+let values = [];
+
+function updateValues(){
+  values.length = 0;
+  for (let i = 0; i < productsList.length; i++) {
+    values.push(parseInt(productsList[i].views));
+  }
+};
+
 let renderContent = function outputProducts(){
   outputTarget.innerHTML = '';
   for (let i = 0; i < 3; i++) {
@@ -130,7 +139,7 @@ let renderContent = function outputProducts(){
     addToBasket.innerHTML = 'Add to basket';
     productCard.append(addToBasket);
     outputTarget.appendChild(productCard);
-    chosenProduct.views++
+    chosenProduct.views++;
   }
 }
 
@@ -139,4 +148,51 @@ function onClick() {
     randomProducts.push(getRandomProduct());
   }
   renderContent();
+}
+
+
+
+
+let labels = [];
+
+function updateLabels() {
+  for (let i = 0; i < productsList.length; i++) {
+    labels.push(productsList[i].name);
+  }
+}
+
+
+let myChart;
+function renderAnalytics(){
+  updateValues();
+  updateLabels();
+  if(myChart){
+    myChart.destroy();
+  }
+  function randomColor() {
+    let red = Math.floor(Math.random()*255);
+    let green = Math.floor(Math.random()*255);
+    let blue = Math.floor(Math.random()*255);
+    return `rgb(${red},${green},${blue})`;
+  }
+  let colors = [];
+  for (let i = 0; i < labels.length; i++) {
+    colors.push(randomColor());
+  };
+  let data = {
+    label: labels,
+    datasets: [{
+      label: 'Product Analytics',
+      backgroundColor: randomColor(),
+      borderColor: 'rgb(255, 99, 132)',
+      data: values,
+    }]
+  }
+  const config = {
+    type: 'bar',
+    data: data,
+    options: {}
+  };
+  
+  myChart = new Chart(document.getElementById('myChart'),config);
 }
