@@ -140,11 +140,11 @@ let renderContent = function outputProducts(){
     productCard.append(addToBasket);
     outputTarget.appendChild(productCard);
     chosenProduct.views++;
-    labels.push(chosenProduct.name);
   }
 }
 
 function onClick() {
+  randomProducts.length = 0;
   for (let i = 0; i < 3; i++){
     randomProducts.push(getRandomProduct());
   }
@@ -153,19 +153,19 @@ function onClick() {
 
 let labels = [];
 
-// function updateLabels() {
-//   for (let i = 0; i < productsList.length; i++) {
-//     // labels.length = 0;
-//     labels.push(productsList[i].name);
-//   }
-// }
+function updateLabels(){
+  labels.length = 0;
+  for (let i = 0; i < productsList.length; i++) {
+    labels.push(productsList[i].name);
+  }
+};
 
 
 let myChart;
 function renderAnalytics(){
   
   updateValues();
-
+  updateLabels();
 
   if(myChart){
     myChart.destroy();

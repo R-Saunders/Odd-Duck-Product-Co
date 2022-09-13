@@ -99,16 +99,16 @@ label, legend {
   width: auto;
 }
 
-#formSubmitBtn {
+#formSubmitBtn, #chart-container button, #render-button {
   cursor: pointer;
   background-color: #2ecc71;
   border: solid 1px #27ae60;
   padding: 0.5rem 1rem;
+  color: white;
 }
 
-#formSubmitBtn:hover, #products button:hover {
+#formSubmitBtn:hover, #products button:hover, #chart-container button:hover, #render-button:hover {
   background-color: #27ae60;
-  color: darkslategray;
 }
 
 #formResetBtn {
@@ -120,10 +120,9 @@ label, legend {
 
 #formResetBtn:hover {
   background-color: #c0392b;
-  color: darkslategray;
 }
 
-#formSubmitBtn:active, #formResetBtn:active, #products button:active {
+#formSubmitBtn:active, #formResetBtn:active, #products button:active, #chart-container button:active, #render-button:active {
   transform: translateY(2px);
 }
 
