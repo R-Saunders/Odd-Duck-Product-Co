@@ -160,7 +160,6 @@ function updateLabels(){
   }
 };
 
-
 let myChart;
 function renderAnalytics(){
   
@@ -187,7 +186,7 @@ function renderAnalytics(){
     labels: labels,
     datasets: [{
       label: 'Product Analytics',
-      backgroundColor: randomColor(),
+      backgroundColor: colors,
       borderColor: 'rgb(255, 99, 132)',
       data: values,
     }]
@@ -196,7 +195,6 @@ function renderAnalytics(){
   let options = {
     maintainAspectRatio: false,
     scales: {
-      stacked: true,
       grid: {
         display: true,
         color: "rgba(255,99,132,0.2)"
