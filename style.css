@@ -177,3 +177,13 @@ section {
   background-color: #2ecc71;
   border: solid 1px #27ae60;
 }
+
+canvas {
+  min-width: 100%;
+}
+
+#chart-container {
+  position: relative;
+  height: 40vh;
+  width: 80vw;
+}

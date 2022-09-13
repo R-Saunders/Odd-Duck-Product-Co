@@ -140,6 +140,7 @@ let renderContent = function outputProducts(){
     productCard.append(addToBasket);
     outputTarget.appendChild(productCard);
     chosenProduct.views++;
+    labels.push(chosenProduct.name);
   }
 }
 
@@ -152,11 +153,12 @@ function onClick() {
 
 let labels = [];
 
-function updateLabels() {
-  for (let i = 0; i < productsList.length; i++) {
-    labels.push(productsList[i].name);
-  }
-}
+// function updateLabels() {
+//   for (let i = 0; i < productsList.length; i++) {
+//     // labels.length = 0;
+//     labels.push(productsList[i].name);
+//   }
+// }
 
 
 let myChart;
@@ -164,7 +166,10 @@ function renderAnalytics(){
   
   updateValues();
 
-  updateLabels();
+
+  if(myChart){
+    myChart.destroy();
+  }
 
   function randomColor() {
     let red = Math.floor(Math.random()*255);
@@ -188,15 +193,28 @@ function renderAnalytics(){
     }]
   }
 
+  let options = {
+    maintainAspectRatio: false,
+    scales: {
+      stacked: true,
+      grid: {
+        display: true,
+        color: "rgba(255,99,132,0.2)"
+      }
+    },
+    x: {
+      grid: {
+        display: false
+      }
+    }
+  };
+
   const config = {
     type: 'bar',
     data: data,
-    options: {}
+    options: options
   };
   
-  if (myChart) {
-    myChart.update()
-  } else {
-    myChart = new Chart(document.getElementById('myChart'),config);
-  }
+  myChart = new Chart(document.getElementById('myChart'),config);
+  
 }
