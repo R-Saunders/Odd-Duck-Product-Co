@@ -194,17 +194,6 @@ function renderAnalytics(){
 
   let options = {
     maintainAspectRatio: false,
-    scales: {
-      grid: {
-        display: true,
-        color: "rgba(255,99,132,0.2)"
-      }
-    },
-    x: {
-      grid: {
-        display: false
-      }
-    }
   };
 
   const config = {

@@ -99,7 +99,7 @@ label, legend {
   width: auto;
 }
 
-#formSubmitBtn, #chart-container button, #render-button {
+#formSubmitBtn, #analytics-button, #render-button {
   cursor: pointer;
   background-color: #2ecc71;
   border: solid 1px #27ae60;
@@ -107,7 +107,7 @@ label, legend {
   color: white;
 }
 
-#formSubmitBtn:hover, #products button:hover, #chart-container button:hover, #render-button:hover {
+#formSubmitBtn:hover, #products button:hover, #analytics-button:hover, #render-button:hover {
   background-color: #27ae60;
 }
 
@@ -122,7 +122,7 @@ label, legend {
   background-color: #c0392b;
 }
 
-#formSubmitBtn:active, #formResetBtn:active, #products button:active, #chart-container button:active, #render-button:active {
+#formSubmitBtn:active, #formResetBtn:active, #products button:active, #analytics-button:active, #render-button:active {
   transform: translateY(2px);
 }
 
@@ -170,11 +170,12 @@ section {
 }
 
 #products button {
-  padding: 0.25rem 0.5rem;
+  padding: 0.5rem 1rem;
   margin: 0.5rem 0;
   cursor: pointer;
   background-color: #2ecc71;
   border: solid 1px #27ae60;
+  color: white;
 }
 
 canvas {
@@ -185,4 +186,8 @@ canvas {
   position: relative;
   height: 40vh;
   width: 80vw;
+}
+
+#analytics-button {
+  margin-bottom: 1rem;
 }
