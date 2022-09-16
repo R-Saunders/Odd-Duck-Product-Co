@@ -80,15 +80,24 @@ function formSubmitted(event) {
   // confirm("Thank you for submitting a new product. The form has been reset if you would like to enter another product.")
 }
 
+let rounds = 0;
+
+function updateRounds() {
+  document.getElementById('rounds').innerHTML = `Number of Rounds: ${rounds}`;
+}
+
 let randomProducts = [];
 const outputTarget = document.getElementById("products");
 
 let values = [];
+let clickValues = []
 
 function updateValues(){
   values.length = 0;
+  clickValues.length = 0;
   for (let i = 0; i < productsList.length; i++) {
     values.push(parseInt(productsList[i].views));
+    clickValues.push(parseInt(productsList[i].clicks));
   }
 };
 
@@ -136,11 +145,16 @@ let renderContent = function outputProducts(){
     productWarrantyOutput.innerHTML = `Warranty: ${chosenProduct.warranty} years`;
     productCard.appendChild(productWarrantyOutput);
     let addToBasket = document.createElement("button");
-    addToBasket.innerHTML = 'Add to basket';
+    addToBasket.innerHTML = 'Vote';
+    addToBasket.addEventListener("click", function(){
+      chosenProduct.clicks++;
+    })
     productCard.append(addToBasket);
     outputTarget.appendChild(productCard);
     chosenProduct.views++;
   }
+  rounds++;
+  updateRounds();
 }
 
 function onClick() {
@@ -185,10 +199,15 @@ function renderAnalytics(){
   let data = {
     labels: labels,
     datasets: [{
-      label: 'Product Analytics',
+      label: 'Product Views',
       backgroundColor: colors,
       borderColor: 'rgb(255, 99, 132)',
       data: values,
+    }, {
+      label: 'Product Votes',
+      backgroundColor: colors,
+      borderColor: 'rgb(255, 99, 132)',
+      data: clickValues,
     }]
   }
 
